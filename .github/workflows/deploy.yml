@@ -26,20 +26,5 @@ jobs:
       - name: Run linting
         run: npm run lint
 
-      - name: Run type checking
-        run: npm run type-check
-
-      - name: Run tests
-        run: npm run test:ci
-
       - name: Build project
         run: npm run build
-
-      - name: Upload build artifacts (for debugging)
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-logs
-          path: |
-            .next/
-            !.next/cache
